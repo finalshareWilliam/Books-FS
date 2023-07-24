@@ -2,11 +2,6 @@
     height: 100vh;
     background-image: linear-gradient(180deg, #002f52 30%, #4683af);
 }
-.App-header{
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-}
 
 li{
     list-style: none;
