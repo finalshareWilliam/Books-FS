@@ -4,4 +4,10 @@
 }
 .App-header{
     background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+li{
+    list-style: none;
 }
