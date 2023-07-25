@@ -9,7 +9,7 @@ const Icones = styled.ul
 `
 
 const Icone = styled.li
-`
+`   
     margin-right: 40px;
     cursor: pointer;
 `

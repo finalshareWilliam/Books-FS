@@ -6,12 +6,12 @@ const Opcoes = styled.ul
 `
 
 const Opcao = styled.li
-`
+`   
     min-width: 200px;
     cursor: pointer;
     font-size: 16px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
 `

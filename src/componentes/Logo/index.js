@@ -5,7 +5,7 @@ const LogoContainer = styled.div
     `
     display: flex;
     font-size: 30px;
-    margin-left: 1.0em;
+    margin-left: 30px;
 `
 const LogoImage = styled.img
     `
