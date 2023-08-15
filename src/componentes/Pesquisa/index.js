@@ -1,76 +1,85 @@
-import { styled } from "styled-components";
-import Input from "../Input";
-import { useState } from "react";
-import { livros } from "./dadosPesquisa";
+/* eslint-disable jsx-a11y/alt-text */
+import Input from '../Input'
+import styled from 'styled-components'
+import { useState } from 'react'
+import { getLivros } from '../../servicos/livros'
+import { useEffect } from 'react'
 
-const PesquisaContainer = styled.section
-    `   
-    justify-content: center;
-    color: #fff;
+const PesquisaContainer = styled.section`
+    background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
+    color: #FFF;
     text-align: center;
     padding: 85px 0;
-    height: 270px;
-    width: 100%
+    height: 470px;
+    width: 100%;
 `
-const Titulo = styled.h2
-    `
-    color: #fff;
+
+const Titulo = styled.h2`
+    color: #FFF;
     font-size: 36px;
     text-align: center;
     width: 100%;
 `
 
-const SubTitulo = styled.h3
-    `
+const Subtitulo = styled.h3`
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 40px;
 `
 
-const Resultado = styled.div
-`
+const Resultado = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     cursor: pointer;
 
-    p{
+    p {
         width: 200px;
     }
 
     img {
-        width: 10%;
+        width: 100px;
     }
 
-    &:hover{
+    &:hover {
         border: 1px solid white;
     }
 `
 
 function Pesquisa() {
     const [livrosPesquisados, setLivrosPesquisados] = useState([])
-    console.log(livrosPesquisados)
+    const [livros, setLivros] = useState([])
+
+    useEffect(() => {
+        fetchLivros()
+    }, [])
+
+    async function fetchLivros() {
+        const livrosDaAPI = await getLivros()
+        setLivros(livrosDaAPI)
+    }
 
     return (
         <PesquisaContainer>
             <Titulo>Já sabe por onde começar?</Titulo>
-            <SubTitulo>Encontre seu livro em nossa estante.</SubTitulo>
-            <Input placeholder="Escreva sua próxima leitura"
+            <Subtitulo>Encontre seu livro em nossa estante.</Subtitulo>
+            <Input
+                placeholder="Escreva sua próxima leitura"
                 onBlur={evento => {
                     const textoDigitado = evento.target.value
-                    const resultadoPesquisa = livros.filter(livro => livro.nome.includes(textoDigitado))
+                    const resultadoPesquisa = livros.filter( livro => livro.nome.includes(textoDigitado))
                     setLivrosPesquisados(resultadoPesquisa)
-                }} />
-            {livrosPesquisados.map(livro => (
+                }}
+            />
+            { livrosPesquisados.map( livro => (
                 <Resultado>
-                    <img src={livro.src} alt="Capa do livro"/>
+                    <img src={livro.src}/>
                     <p>{livro.nome}</p>
                 </Resultado>
-            ))}
+            ) ) }
         </PesquisaContainer>
     )
 }
 
-export default Pesquisa;
+export default Pesquisa

@@ -1,32 +1,32 @@
-import { Link } from 'react-router-dom';
-import { styled } from 'styled-components';
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-const Opcoes = styled.ul
-    `
-    display: flex;
-`
-
-const Opcao = styled.li
-    `   
-    min-width: 200px;
-    cursor: pointer;
+const Opcao = styled.li`
     font-size: 16px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     text-align: center;
+    height: 100%;
+    padding: 0 5px;
+    cursor: pointer;
+    min-width: 120px;
 `
 
-function OpcoesHeader() {
+const Opcoes = styled.ul`
+    display: flex;
+`
 
-    const textoOpcoes = ['Catergorias', 'Favoritos', 'Minha Estante']
+const textoOpcoes = ['CATEGORIAS', 'FAVORITOS', 'ESTANTE']
+
+function OpcoesHeader() {
     return (
         <Opcoes>
-            {textoOpcoes.map((texto) => (
-                <Link to={`/${texto.toLowerCase()}`}> <Opcao> <p>{texto}</p> </Opcao> </Link>
-            ))}
-        </Opcoes>
+            { textoOpcoes.map( (texto) => (
+                <Link to={`/${texto.toLowerCase()}`} ><Opcao><p>{texto}</p></Opcao></Link>
+            ) ) }
+      </Opcoes>
     )
 }
 
-export default OpcoesHeader;
+export default OpcoesHeader

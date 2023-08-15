@@ -1,14 +1,12 @@
-import logo from '../../imagens/logo.svg';
-import { styled } from 'styled-components';
+import logo from '../../imagens/logo.svg'
+import styled from 'styled-components'
 
-const LogoContainer = styled.div
-    `
+const LogoContainer = styled.div`
     display: flex;
     font-size: 30px;
-    margin-left: 30px;
 `
-const LogoImage = styled.img
-    `
+
+const LogoImage = styled.img`
     margin-right: 10px;
 `
 
@@ -17,11 +15,11 @@ function Logo() {
         <LogoContainer>
             <LogoImage
                 src={logo}
-                alt='logo da alurabooks'
+                alt='logo' 
             />
             <p><strong>Alura</strong>Books</p>
-        </LogoContainer>
+       </LogoContainer>
     )
 }
 
-export default Logo;
+export default Logo
